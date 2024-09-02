@@ -1,0 +1,31 @@
+version: '3.9'
+
+services:
+  db:
+    image: postgres:16.4
+    restart: always
+    shm_size: 128mb
+    environment:
+      POSTGRES_PASSWORD: examplepassword
+      POSTGRES_USER: exampleuser
+      POSTaGRES_DB: exampledb
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    networks:
+      - app-network
+    ports:
+      - 5432:5432  
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+    networks:
+      - app-network
+
+networks:
+  app-network:
+
+volumes:
+  db_data:
