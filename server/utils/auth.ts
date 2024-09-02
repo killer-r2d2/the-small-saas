@@ -1,4 +1,4 @@
-// server/utils/auth.ts
+// The auth.ts file configures and initializes the Lucia authentication system in your Nuxt 3 application, integrating it with Prisma to handle user authentication, session management, and securely retrieve user attributes.
 
 // This is the main authentication library you're using. It handles the core logic for user authentication, including session management and user management.
 import { Lucia } from "lucia";
