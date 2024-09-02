@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useUser } from '~/composables/useUser';
+import Logout from './components/Logout.vue';
 
 const user = useUser();
 </script>
@@ -10,6 +11,7 @@ const user = useUser();
       <NuxtLink to="/">Home</NuxtLink>
       <NuxtLink to="/signup">Signup</NuxtLink>
       <NuxtLink to="/login">Login</NuxtLink>
+      <Logout v-if="user" />
     </nav>
     <NuxtPage />
     <div v-if="user">
