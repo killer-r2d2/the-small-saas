@@ -3,10 +3,10 @@ import { ref } from 'vue';
 
 const errorMessage = ref<string | null>(null);
 
-async function signup(e: Event) {
+async function login(e: Event) {
   errorMessage.value = null; // Reset error message before submitting
   try {
-    await $fetch("/api/signup", {
+    await $fetch("/api/login", {
       method: "POST",
       body: new FormData(e.target as HTMLFormElement)
     });
@@ -23,15 +23,15 @@ async function signup(e: Event) {
 </script>
 
 <template>
-  <h1>Create an account</h1>
-  <form @submit.prevent="signup">
+  <h1>Sign in</h1>
+  <form @submit.prevent="login">
     <label for="username">Username</label>
     <input name="username" id="username" required />
     <br />
     <label for="password">Password</label>
     <input type="password" name="password" id="password" required />
     <br />
-    <button type="submit">Continue</button>
+    <button type="submit">Login</button>
     <p v-if="errorMessage" style="color: red;">{{ errorMessage }}</p>
   </form>
 </template>

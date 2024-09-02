@@ -1,3 +1,5 @@
+// This file handles the user signup process by validating the input, ensuring the username is unique, securely hashing the password, creating a new user in the database, and finally, establishing a session for the user and setting a session cookie.
+
 import { hash } from "@node-rs/argon2";
 import { generateIdFromEntropySize } from "lucia";
 import { PrismaClient } from "@prisma/client";
